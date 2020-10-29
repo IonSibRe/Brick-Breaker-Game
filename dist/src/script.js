@@ -24,7 +24,7 @@ let gameReset = false;
 // Levels Array
 const levels = [
     [
-        [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1],
+        [1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0],
         [1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1],
         [1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -146,10 +146,11 @@ function inputControl(e) {
     }
 
     // Reset Game
-    if (
-        (e.key === "r" && gamestate === GAME_STATES.GAMEOVER) ||
-        gamestate === GAME_STATES.GAMEWON
-    ) {
+    if (e.key === "r" && gamestate === GAME_STATES.GAMEWON) {
+        gameReset = true;
+    }
+
+    if (e.key === "r" && gamestate === GAME_STATES.GAMEOVER) {
         gameReset = true;
     }
 }
@@ -372,6 +373,7 @@ function pauseGame() {
 // Reset Game
 function resetGame() {
     levelIndex = 0;
+    loadedLevels = 1;
     lives = 3;
     gameReset = false;
     createBricks();
