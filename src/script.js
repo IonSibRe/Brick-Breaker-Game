@@ -372,6 +372,7 @@ function pauseGame() {
 // Reset Game
 function resetGame() {
     levelIndex = 0;
+    loadedLevels = 1;
     lives = 3;
     gameReset = false;
     createBricks();
