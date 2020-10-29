@@ -146,11 +146,10 @@ function inputControl(e) {
     }
 
     // Reset Game
-    if (e.key === "r" && gamestate === GAME_STATES.GAMEWON) {
-        gameReset = true;
-    }
-
-    if (e.key === "r" && gamestate === GAME_STATES.GAMEOVER) {
+    if (
+        (e.key === "r" && gamestate === GAME_STATES.GAMEWON) ||
+        gamestate === GAME_STATES.GAMEOVER
+    ) {
         gameReset = true;
     }
 }
